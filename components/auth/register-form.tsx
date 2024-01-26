@@ -37,7 +37,7 @@ const formSchema = z.object({
     invalid_type_error: "Name must be a string",
   }).min(10, {message: 'Password is too short. The minimum length is 10 symbols.'}).max(36),
 })
-
+// import { supabaseClient } from '@/lib/supabase'
 // COMPONENT
 const RegistrationForm = () => {
 
@@ -77,20 +77,13 @@ const RegistrationForm = () => {
             setRegistrationSuccess(true)
         }
 	}
-    
-  // async function create(formData: FormData) {
-  //   'use server';
-  //   fetch('https://jsonplaceholder.typicode.com/todos/2')
-  //     .then(response => response.json())
-  //     .then(json => console.log(json))
-  // }
+  
 
   const formStyles = 'flex flex-col h-full w-full p-4 gap-4'
 
   const loginText = 'text-2xl'
   const formLabelStyles = 'text-zinc-700 ml-2 text-lg'
-//   const descriptionStyles = 'font-sm text-zinc-700'
-  
+
   return (
     <AnimatePresence mode="wait">
         {!registrationSuccess ? 
@@ -115,9 +108,6 @@ const RegistrationForm = () => {
                   <FormControl className={cn('bg-zinc-100')}>
                       <Input placeholder="email" type="email" {...field} />
                   </FormControl>
-                  {/* <FormDescription className={cn(descriptionStyles)}>
-                      This is your public display name.
-                  </FormDescription> */}
                   <FormMessage />
                   </FormItem>
               )}
